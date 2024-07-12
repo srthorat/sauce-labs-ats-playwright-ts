@@ -22,11 +22,11 @@ jobs:
         with:
           node-version: 18
 
+      - name: Install Dependancies
+        run: npm install
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
-
-      - name: Install
-        run: npm ci
 
       - name: Run Sauce Demo UI Playwright Tests
         run: SAUCE_USERNAME=${{ secrets.SAUCE_USERNAME }} SAUCE_PASSWORD=${{ secrets.SAUCE_PASSWORD }}  npm run test:all
