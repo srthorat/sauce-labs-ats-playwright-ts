@@ -22,24 +22,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            libwoff2-1 \
-            libvpx6 \
-            libevent-2.1-7 \
-            libopus0 \
-            libgstreamer1.0-0 \
-            libgstreamer-plugins-base1.0-0 \
-            libharfbuzz0b \
-            libmanette-0.2-0 \
-            libflite1 \
-            libgles2 \
-            libx264-160
-
       - name: Install Playwright browsers
-        run: npx playwright install
+        run: npx playwright install --with-deps
 
       - name: Install
         run: npm ci
