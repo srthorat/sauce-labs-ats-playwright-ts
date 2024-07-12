@@ -22,21 +22,21 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install webkit dependencies
+      - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-            libwoff2dec1 \
-            libvpx7 \
+            libwoff2-1 \
+            libvpx6 \
             libevent-2.1-7 \
             libopus0 \
             libgstreamer1.0-0 \
             libgstreamer-plugins-base1.0-0 \
-            libharfbuzz-icu0 \
+            libharfbuzz0b \
             libmanette-0.2-0 \
             libflite1 \
-            libGLESv2 \
-            libx264-155
+            libgles2 \
+            libx264-160
 
       - name: Install Playwright browsers
         run: npx playwright install
