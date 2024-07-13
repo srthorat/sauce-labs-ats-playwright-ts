@@ -15,5 +15,19 @@ export class LoginPage {
     await this.page.fill('#user-name', username);
     await this.page.fill('#password', password);
     await this.page.click('#login-button');
+
+    // Check for login error
+    const errorElement = await this.page.$('.error-message-container');
+    if (errorElement) {
+      const errorMessage = await errorElement.textContent();
+      throw new Error(`Login failed with error message: ${errorMessage}`);
+    }
+
+    // Check if navigated to inventory page
+    const isOnInventoryPage =
+      (await this.page.url()) === 'https://www.saucedemo.com/inventory.html';
+    if (!isOnInventoryPage) {
+      throw new Error('Login failed: Not redirected to inventory page.');
+    }
   }
 }
