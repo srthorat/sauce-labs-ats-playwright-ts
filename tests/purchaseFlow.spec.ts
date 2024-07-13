@@ -10,7 +10,6 @@ let password: string;
 test.beforeEach(async () => {
   username = process.env.SAUCE_USERNAME || '';
   password = process.env.SAUCE_PASSWORD || '';
-  console.log(`Username: ${username}, Password: ${password}`);
 
   if (username === '' || password === '') {
     console.log('Username or password is not provided');

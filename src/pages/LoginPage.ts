@@ -15,6 +15,7 @@ export class LoginPage {
     await this.page.fill('#user-name', username);
     await this.page.fill('#password', password);
     await this.page.click('#login-button');
+    console.log(`\t\t==> Attempted to log in with username: ${username}`);
 
     // Check for login error
     const errorElement = await this.page.$('.error-message-container');
@@ -28,6 +29,8 @@ export class LoginPage {
       (await this.page.url()) === 'https://www.saucedemo.com/inventory.html';
     if (!isOnInventoryPage) {
       throw new Error('Login failed: Not redirected to inventory page.');
+    } else {
+      console.log(`\t\t==> Successfully logged in and navigated to inventory page.`);
     }
   }
 }
