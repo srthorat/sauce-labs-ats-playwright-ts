@@ -48,7 +48,7 @@ jobs:
       - name: Prepare reports for GitHub Pages
         run: |
           mkdir -p public/playwright
-          cp -r playwright-report/* public/playwright/
+          cp -r playwright-report/* public/
 
       - name: Deploy to GitHub Pages
         if: always()
