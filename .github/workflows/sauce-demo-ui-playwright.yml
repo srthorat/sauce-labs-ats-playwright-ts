@@ -48,7 +48,6 @@ jobs:
       - name: Prepare reports for GitHub Pages
         run: |
           mkdir -p public/playwright
-          mkdir -p public/cypress
           cp -r playwright-report/* public/playwright/
 
       - name: Deploy to GitHub Pages
